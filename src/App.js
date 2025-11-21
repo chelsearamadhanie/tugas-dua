@@ -1,8 +1,8 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
-import StudentCard from './components/StudentCard';
-import CalculatorPage from './components/CalculatorPage';
+import StudentCard from './component/StudentCard';
+import CalculatorPage from './componentgi/CalculatorPage';
 
 function App() {
   return (

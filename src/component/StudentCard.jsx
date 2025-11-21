@@ -1,34 +1,36 @@
-import React, { useState } from 'react';
-function StudentCard(props) {
-const [showHobby, setShowHobby] = useState(false);
-return (
-<div className="w-80 bg-white shadow-xl rounded-lg p-6
-m-4 transition-all hover:shadow-2xl">
+import React, { useState } from "react";
+import { useNavigate } from 'react-router-dom';
 
-<h2 className="text-xl font-bold text-gray-900">{props.name}</h2>
+export default function StudentCard(props) {
+  const [showHobby, setShowHobby] = useState(false);
+  const navigate = useNavigate();
 
-<p className="text-sm text-gray-600">{props.nim}</p>
-<div className="border-t border-gray-200 my-3"></div>
-<p className="text-gray-700">
-<span className="font-semibold">Tgl. Lahir: </span>
-{props.dob}
-</p>
-<button
-onClick={() => setShowHobby(!showHobby)}
-className="mt-4 px-3 py-1 bg-blue-100 text-blue-800
-text-sm font-semibold rounded-full hover:bg-blue-200"
->
-{showHobby ? 'Sembunyikan Hobi' : 'Tampilkan Hobi'}
-</button>
-{showHobby && (
-<div className="mt-3 p-3 bg-gray-50 rounded-lg">
-<p className="text-gray-700">
-<span className="font-semibold">Hobi: </span>
-{props.hobby}
-</p>
-</div>
-)}
-</div>
-);
+  return (
+    <div className="max-w-sm mx-auto bg-white rounded-xl shadow-md overflow-hidden md:max-w-2xl p-6 mt-10 border">
+      <div className="text-center">
+        <div className="uppercase tracking-wide text-sm text-indigo-500 font-semibold">Kartu Mahasiswa</div>
+
+        <h1 className="block mt-1 text-lg leading-tight font-medium text-black">{props.nama || "Chelsea Aulia Ramadhani"}</h1>
+        <p className="mt-2 text-gray-500">{props.nim || "101012400124"}</p>
+
+        <button 
+            onClick={() => setShowHobby(!showHobby)}
+            className="mt-4 px-4 py-2 bg-indigo-500 text-white rounded hover:bg-indigo-600 transition"
+        >
+            {showHobby ? "Sembunyikan Hobi" : "Tampilkan Hobi"}
+        </button>
+        
+        {showHobby && <p className="mt-2 text-gray-700">Hobi: {props.hobi || "golf"}</p>}
+
+        <hr className="my-6" />
+
+        <button 
+            onClick={() => navigate('/calculator')}
+            className="w-full px-4 py-2 bg-green-600 text-white font-bold rounded hover:bg-green-700 transition"
+        >
+            Calculator
+        </button>
+      </div>
+    </div>
+  );
 }
-export default StudentCard;
