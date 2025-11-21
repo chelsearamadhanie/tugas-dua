@@ -2,7 +2,7 @@ import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 import StudentCard from './component/StudentCard';
-import CalculatorPage from './componentgi/CalculatorPage';
+import CalculatorPage from './component/CalculatorPage';
 
 function App() {
   return (
